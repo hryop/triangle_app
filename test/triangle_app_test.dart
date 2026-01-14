@@ -32,22 +32,22 @@ void main() {
   });
 }
 
-detectTriangle(int sideA, int sideB, int sideC) {
+String detectTriangle(int sideA, int sideB, int sideC) {
   var sides = [sideA, sideB, sideC];
 
   var match = 0;
-  sides.forEach((side) {
+  for (var side in sides) {
     if (side < 1) throw Exception();
 
     if (side == sideA) match++;
     if (side == sideB) match++;
     if (side == sideC) match++;
-  });
+  }
 
   if (sides[0] + sides[1] <= sides[2] ||
       sides[1] + sides[2] <= sides[0] ||
       sides[0] + sides[2] <= sides[1]) {
-    throw Exception('Inequal Triangle');
+    throw Exception('This is Inequal Triangle');
   }
 
   if (sides.every((element) => element == sideA)) return segitigaSamaSisi;
